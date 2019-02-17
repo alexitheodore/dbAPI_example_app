@@ -1,0 +1,18 @@
+-- GRANT ALL PRIVILEGES ON DATABASE {database} TO the_architect;
+REASSIGN OWNED BY the_architect TO postgres;
+DROP SCHEMA IF EXISTS public CASCADE;
+DROP SCHEMA IF EXISTS global CASCADE;
+CREATE SCHEMA global AUTHORIZATION the_architect;
+
+SET search_path TO "global";
+ALTER DATABASE {database} SET search_path TO "global";
+
+SET ROLE postgres;
+
+CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
+CREATE EXTENSION IF NOT EXISTS ltree;
+-- CREATE EXTENSION IF NOT EXISTS plpythonu;
+CREATE EXTENSION IF NOT EXISTS dblink;
+-- CREATE EXTENSION IF NOT EXISTS pgcrypto;
+CREATE EXTENSION IF NOT EXISTS citext;
+
