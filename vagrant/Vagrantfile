@@ -1,0 +1,19 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/xenial64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.provision :shell, :path => "install.sh"
+  
+  config.vm.network :private_network, ip: "192.168.20.3"
+  config.vm.define :"cfd_app"
+  
+  config.vm.synced_folder "config_presets/", "/var/setup"
+  config.vm.synced_folder "../www/", "/www", mount_options: ["dmode=775,fmode=664"]
+  config.vm.synced_folder "../dbAPI/", "/dbAPI", mount_options: ["dmode=775,fmode=664"]
+  config.vm.synced_folder "../security", "/www/security", mount_options: ["dmode=775,fmode=664"] #this probably needs some permissions
+end
