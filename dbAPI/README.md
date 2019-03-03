@@ -142,6 +142,19 @@ The script will do the following operations:
 
 System-wide variables, such as directory paths, database names, etc. are defined exclusively in the variables.sh file.
 
+### Adding or removing a sql build file
+
+To add or remove a file, reference it by name/delete in the designated loop area inside sql_build.sh.
+
+	# <add files here>
+
+	users.sql
+	new_file_here.sql
+
+	# </add files here>
+	
+
+
 ### Functional testing
 
 Functional testing is done automatically whenever the database is rebuilt; however, it can and should be done routinely to verify full functionality. Running the following command will do so (all operations and changes are reversed):

@@ -2,7 +2,7 @@
 
 This is a simple demonstration of a PostgreSQL-based "dbAPI" implementation. It is a structured framework for formalizing the database as an API server by funneling client activity through stored procedures. 
 
-These "delegate functions" are the singular avenue for all database requests (reading, writing and executing), accepting structured requests and returning structured, reliable responses. In doing so, the entire data model is abstracted from the main application
+These "delegate functions" are the singular avenue for all database requests (reading, writing and executing), accepting structured requests and returning structured, reliable responses. In doing so, the entire data model is abstracted from the main application.
 
 In order for a proper and full implementation, only the following conditions must be met:
 
@@ -40,20 +40,13 @@ For this particular example, "global.sql" and "users.sql" are the only applicati
 
 # Usage
 
-**To build using Vagrant**, navigate to the ../vagrant/ folder and
+### Build VM with Vagrant
+
+navigate to the ../vagrant/ folder and
 > $ vagrant up
 
 The vagrant provisioning script should do the rest and you'll have to troubleshoot on your own to figure out any issues.
 
-**After making any changes** (for example to users.sql), the database must be rebuilt. In the ../dbAPI/ folder
-> $ bash sql_build.sh
+### SQL development
 
-**To add a new sql build file**, reference it by name in the designated loop area inside sql_build.sh
-
-	# <add files here>
-
-	users.sql
-	new_file_here.sql
-
-	# </add files here>
-	
+See dbAPI directory and README for files and instructions.
